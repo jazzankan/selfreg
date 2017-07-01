@@ -1,0 +1,132 @@
+@charset "utf-8";
+/* CSS Document */
+/* Kompletterar Bootstrap (http://getbootstrap.com/) för applikationen onlinebetalningar.*/
+
+@font-face {
+    font-family: "Nobile";
+    font-style: normal;
+    font-weight: bold;
+    src: url("https://pay.bibl.sh.se/fonts/nobile_bold-webfont.woff") format("woff"), url("http://pay.bibl.sh.se/fonts/nobile_bold-webfont.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Nobile";
+    font-style: normal;
+    font-weight: normal;
+    src: url("https://pay.bibl.sh.se/fonts/nobile-webfont.woff") format("woff"), url("http://pay.bibl.sh.se/fonts/nobile-webfont.ttf") format("truetype");
+}
+
+body {
+    background: url("../img/bg-light.png");
+}
+
+.container {
+    background: transparent url("../img/paper-bottom-white.png") repeat-x scroll 0 100%;
+    background-color: #FFF;
+    margin-top: 20px;
+    max-width: 950px;
+    font-family: Nobile,Calibri,Arial,Helvetica,sans-serif;
+    box-shadow: 0 0 4px #808080;
+}
+.headwrap{
+    /*margin-top: -10px;*/
+    background: #ffffff url("../img/paper-top-white.png") repeat-x scroll 0 0;
+    min-height: 140px;
+}
+
+.header {
+    min-height: 110px;
+    padding-top: 12px;
+    background: #ffffff url("../img/paper-top-white.png") repeat-x scroll 0 0;
+    border-bottom: 1px dotted #CCC;
+}
+
+.titlink{
+    vertical-align:central;
+    font-weight: bold;
+}
+
+.footer{
+    height: 90px;
+    border-top: 1px dotted #CCC;
+    font-weight: bold;
+    margin: 3em 2.2% 0;
+    padding: 2.1em 0 1.3em;
+
+}
+
+.shfoot{
+    float:right;
+}
+
+#firstname{
+    max-width: 300px;
+}
+
+#familyname {
+    max-width: 300px;
+}
+
+.logo {
+    float: right;
+}
+
+.obs{
+    font-weight:bold;
+    font-size: 1.2em;
+    color: red;
+}
+
+.maintext{
+    font-family: Arial,Helvetica,sans-serif;
+}
+.kopvillkor{
+    font-family: Arial,Helvetica,sans-serif;
+}
+
+a:link, a:visited {
+    color: #004a70;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.btn-success{
+    font-weight: bold;
+}
+
+.btn-primary{
+    font-weight: bold;
+}
+
+.list-unstyled li{
+    line-height: 1.8;
+    font-size:0.95em;
+    padding: 0 0 0 40px;
+}
+
+.list-unstyled li:nth-child(even) {
+    background-color: #F3F3F3 ;
+}
+
+ul.terms {
+    color: #333333;
+    list-style: outside none none;
+    margin: 0;
+    font-size:0.95em;
+}
+ul.terms li {
+    background: transparent url("../img/list-dot-cyan.png") no-repeat scroll 0 4px;
+    padding: 0 0 10px 1.5em;
+}
+.move-left {
+    height:auto;
+    width: auto;
+}
+.orgnumber{
+    margin-top: 20px;
+    margin-bottom: 0px;
+    margin-left: 40px;
+    font-size: 0.85em;
+}
+
+
