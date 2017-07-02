@@ -45,19 +45,8 @@ $html = <<<EOD
                     <input class="btn btn-primary" value="Skicka" type="submit">
                 </form>
                 <p>&nbsp;</p>
-
-
-            </div>
+                 </div>
             <div id="amount">
-
-            </div>
-            <div id="thankyou">
-
-
-                <p></p>
-
-
-                <p>&nbsp;</p>
             </div>
         </div>
     </div>
