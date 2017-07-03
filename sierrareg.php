@@ -15,7 +15,7 @@ $html = <<<EOD
     <div class="headwrap">
         <div class="row header">
             <div class="col-sm-7">
-                <h3 class="titlink"><a href="http://www.sh.se/bibliotek">Biblioteket</a> / <a href="https://pay.bibl.sh.se">Registrera dig</a></h3>
+                <h3 class="titlink"><a href="http://www.sh.se/bibliotek">Biblioteket</a> / <a href="https://pay.bibl.sh.se">Ansökan om lånekort</a></h3>
             </div>
             <div class="col-sm-2">
                 <a href="https://pay.bibl.sh.se/eng">In English</a>
@@ -27,7 +27,6 @@ $html = <<<EOD
     </div>
     <div class="row maintext">
         <div class="col-sm-12">
-           <h3>Registrera dig som biblioteksanvändare</h3>
                 <div id="reginput">
                 <form id="regform" role="form" action="" method="post" accept-charset="UTF-8">
                     <label for="firstname">Förnamn</label>
@@ -38,7 +37,7 @@ $html = <<<EOD
                     <p>&nbsp;</p>
                     <div class=" checkbox move-left">
                         <label>
-                            <input class="form-control move-left" required="" id="approved" value="" type="checkbox"> Jag accepterar köpvillkoren nedan
+                            <input class="form-control move-left" required="" id="approved" value="" type="checkbox"> Jag har sett villkoren nedan
                         </label>
                     </div>
                     <p>&nbsp;</p>
@@ -46,26 +45,22 @@ $html = <<<EOD
                 </form>
                 <p>&nbsp;</p>
                  </div>
-            <div id="amount">
-            </div>
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-8 kopvillkor">
-            <p><b>Köpvillkor:</b></p>
+        <div class="col-sm-8 termsdiv">
+            <p><b>Villkor:</b></p>
             <ul class="terms">
-                <li>Tjänsten är endast avsedd för registrerade användare av Södertörns högskolebibliotek</li>
-                <li>Tjänsten avser betalning av avgifter i bibliotekets lånesystem</li>
-                <li>Betalning sker hos <a href="http://www.dibs.se" target="_blank">DIBS</a> och godkända kort är Visa och MasterCard</li>
-                <li>Liksom vid betalning över disk kan endast hela avgiften betalas - ingen delbetalning</li>
-                <li><b>Avgifterna tas bort när du klickar vidare till kvitto efter godkänd betalning</b></li>
-                <li>Vid problem, kontakta biblioteket</li>
+                <li>Fyll bara i om du <b>inte</b> har ett SH-kort.</li>
+                <li>Som registrerad kan du få ett lånekort vid bibliotekets informationsdisk.</li>
+                <li>Du måste visa legitimation vid uthämtande av lånekort.</li>
+                <li>Du måste acceptera bibliotekets låneregler.</li>
+                <li>Vid problem, kontakta biblioteket.</li>
             </ul>
-            <p class="orgnumber">Organisationsnummer: 202100-4896</p>
         </div>
         <div class="col-sm-4">
             <div class="dibs_brand_assets" style="margin: 12px;">
-                <img src="https://cdn.dibspayment.com/logo/checkout/combo/vert/DIBS_checkout_kombo_vertical_01.png" alt="DIBS - Payments made easy" width="215">
+                <img src="img/lanekort.jpg" alt="Lånekort" width="215">
             </div>
         </div>
     </div>
