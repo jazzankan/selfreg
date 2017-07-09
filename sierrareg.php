@@ -31,10 +31,20 @@ $html = <<<EOD
                 <form id="regform" role="form" action="" method="post" accept-charset="UTF-8">
                     <label for="firstname">Förnamn</label>
                     <input class="form-control" name="firstname" id="firstname" value="" autofocus="" maxlength="60" type="text">
-                    <p>&nbsp;</p>
                     <label for="familyname">Efternamn</label>
-                    <input class="form-control" name="familyname" id="familyname" value="" maxlength="10" type="text">
-                    <p>&nbsp;</p>
+                    <input class="form-control" name="familyname" id="familyname" value="" maxlength="60" type="text">
+                    <label for="socialsecurity">Personnummer</label>
+                    <input class="form-control" name="socialsecurity" id="socialsecurity" value="" maxlength="12" type="text">
+                    <label for="phone">Telefon</label>
+                    <input class="form-control" name="phone" id="phone" value="" maxlength="16" type="text">
+                    <label for="street">Gatunamn</label>
+                    <input class="form-control" name="street" id="street" value="" maxlength="60" type="text">
+                    <label for="postalcode">Postnummer</label>
+                    <input class="form-control" name="postalcode" id="postalcode" value="" maxlength="8" type="text">
+                    <label for="street">Postort</label>
+                    <input class="form-control" name="postaladdr" id="postaladdr" value="" maxlength="60" type="text">
+                    <label for="email">E-post</label>
+                    <input class="form-control" name="email" id="email" value="" maxlength="60" type="text">
                     <div class=" checkbox move-left">
                         <label>
                             <input class="form-control move-left" required="" id="approved" value="" type="checkbox"> Jag har sett villkoren nedan
@@ -43,7 +53,6 @@ $html = <<<EOD
                     <p>&nbsp;</p>
                     <input class="btn btn-primary" value="Skicka" type="submit">
                 </form>
-                <p>&nbsp;</p>
                  </div>
         </div>
     </div>

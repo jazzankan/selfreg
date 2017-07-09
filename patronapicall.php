@@ -3,7 +3,7 @@ function GetToken(){
 	$header = array(
 	"Authorization: Basic dmtDNHhMRHI1WFVZSVNIS0J2dXNxZHZMeUxvVDpqYXp6YW5rYW4=",		
 	);
-	$url = "https://soder.iii.com:443/iii/sierra-api/v3/token";
+	$url = "https://soder.iii.com:443/iii/sierra-api/v4/token";
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 	curl_setopt($ch, CURLOPT_URL, $url);
@@ -30,7 +30,7 @@ function GetToken(){
 	$header = array(
 	"Authorization: Bearer ".$token,		
 	);
-	$url = "https://soder.iii.com:443/iii/sierra-api/v3/patrons/find?".$code."&fields=names%2Caddresses%2Cphones%2Cemails%2CuniversityId%2CpatronType%2Cbarcodes";
+	$url = "https://soder.iii.com:443/iii/sierra-api/v4/patrons/find?".$code."&fields=names%2Caddresses%2Cphones%2Cemails%2CuniqueIds%2CpatronType%2Cbarcodes";
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 	curl_setopt($ch, CURLOPT_URL, $url);

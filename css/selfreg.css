@@ -61,11 +61,45 @@ body {
 
 #firstname{
     max-width: 300px;
+    margin-bottom: 20px;
 }
 
 #familyname {
     max-width: 300px;
+    margin-bottom: 20px;
 }
+
+#socialsecurity{
+    max-width: 130px;
+    margin-bottom: 20px;
+}
+
+#street{
+    max-width: 300px;
+    margin-bottom: 30px;
+}
+
+#postalcode{
+    max-width: 130px;
+    margin-bottom: 20px;
+}
+
+#postaladdr{
+    max-width: 300px;
+    margin-bottom: 30px;
+}
+
+#phone{
+    max-width: 130px;
+    margin-bottom: 20px;
+}
+
+#email{
+    max-width: 300px;
+    margin-bottom: 30px;
+}
+
+
 
 .logo {
     float: right;
