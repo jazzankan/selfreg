@@ -1,4 +1,49 @@
 <?php
+
+$firstname = (empty($_POST['firstname']) ? "" : $_POST['firstname']);
+$familyname = (empty($_POST['familyname']) ? "" : $_POST['familyname']);
+$uniqueid = (empty($_POST['uniqueid']) ? "" : $_POST['uniqueid']);
+$phone = (empty($_POST['phone']) ? "" : $_POST['phone']);
+$street = (empty($_POST['street']) ? "" : $_POST['street']);
+$postalcode = (empty($_POST['postalcode']) ? "" : $_POST['postalcode']);
+$postaladdr = (empty($_POST['postaladdr']) ? "" : $_POST['postaladdr']);
+$email = (empty($_POST['email']) ? "" : $_POST['email']);
+$searchresult = Array();
+$created = Array();
+$errormsg = "";
+$result = "";
+
+if($firstname == ""){
+    require_once 'form.php';
+}
+
+
+if($firstname != "" && $familyname != "") {
+    $form = "";
+    require 'jsonsearch.php';
+    require 'jsondata.php';
+    require_once 'patronapicall.php';
+    $searchresult = SearchPatron($jsonsearch);
+    var_dump($searchresult);
+    if($searchresult['total'] != 0){
+       $errormsg = "Du verkar redan vara registrerad! Kontakta biblioteket!";
+    }
+    else{
+        $created = CreatePatron($jsondata);
+        var_dump($created);
+          if(isset($created['link'])){
+              $result = "Tack för din registrering!";
+          }
+          else{
+             $errormsg = "Något gick fel. Kontakta biblioteket!";
+          }
+    }
+}
+/*require_once 'patronapicall.php';
+$resp = GetPatron("1049873");
+//var_dump($pResponse);
+echo $resp['emails'][0];*/
+
 $html = <<<EOD
 <!DOCTYPE html>
 <html lang="sv"><head>
@@ -7,7 +52,7 @@ $html = <<<EOD
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/selfreg.css" rel="stylesheet">
     <link rel="icon" type="image/gif" href="img/favicon.ico">
-    <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
@@ -28,31 +73,14 @@ $html = <<<EOD
     <div class="row maintext">
         <div class="col-sm-12">
                 <div id="reginput">
-                <form id="regform" role="form" action="" method="post" accept-charset="UTF-8">
-                    <label for="firstname">Förnamn</label>
-                    <input class="form-control" name="firstname" id="firstname" value="" autofocus="" maxlength="60" type="text">
-                    <label for="familyname">Efternamn</label>
-                    <input class="form-control" name="familyname" id="familyname" value="" maxlength="60" type="text">
-                    <label for="socialsecurity">Personnummer</label>
-                    <input class="form-control" name="socialsecurity" id="socialsecurity" value="" maxlength="12" type="text">
-                    <label for="phone">Telefon</label>
-                    <input class="form-control" name="phone" id="phone" value="" maxlength="16" type="text">
-                    <label for="street">Gatunamn</label>
-                    <input class="form-control" name="street" id="street" value="" maxlength="60" type="text">
-                    <label for="postalcode">Postnummer</label>
-                    <input class="form-control" name="postalcode" id="postalcode" value="" maxlength="8" type="text">
-                    <label for="street">Postort</label>
-                    <input class="form-control" name="postaladdr" id="postaladdr" value="" maxlength="60" type="text">
-                    <label for="email">E-post</label>
-                    <input class="form-control" name="email" id="email" value="" maxlength="60" type="text">
-                    <div class=" checkbox move-left">
-                        <label>
-                            <input class="form-control move-left" required="" id="approved" value="" type="checkbox"> Jag har sett villkoren nedan
-                        </label>
+                {$form}
+                <div class="errormsg">
+                    <p>{$errormsg}</p>
+                    </div>
+                    <div id ="result">
+                    {$result}
                     </div>
                     <p>&nbsp;</p>
-                    <input class="btn btn-primary" value="Skicka" type="submit">
-                </form>
                  </div>
         </div>
     </div>
@@ -69,7 +97,7 @@ $html = <<<EOD
         </div>
         <div class="col-sm-4">
             <div class="dibs_brand_assets" style="margin: 12px;">
-                <img src="img/lanekort.jpg" alt="Lånekort" width="215">
+                <img src="img/lanekort3.png" alt="Lånekort" id="card" width="215">
             </div>
         </div>
     </div>

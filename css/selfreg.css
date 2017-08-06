@@ -69,14 +69,14 @@ body {
     margin-bottom: 20px;
 }
 
-#socialsecurity{
+#uniqueid{
     max-width: 130px;
     margin-bottom: 20px;
 }
 
 #street{
     max-width: 300px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 #postalcode{
@@ -86,7 +86,7 @@ body {
 
 #postaladdr{
     max-width: 300px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 #phone{
@@ -96,13 +96,27 @@ body {
 
 #email{
     max-width: 300px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
+.errormsg{
+    color: red;
+    font-weight: 600;
+    font-size: 1.65rem;
+}
 
+#result{
+    color: green;
+    font-weight: 600;
+    font-size: 1.65rem;
+}
 
 .logo {
     float: right;
+}
+
+img#card{
+
 }
 
 .obs{
@@ -130,6 +144,7 @@ a:link, a:visited {
 
 .btn-primary{
     font-weight: bold;
+    margin-bottom: 25px;
 }
 
 .list-unstyled li{
