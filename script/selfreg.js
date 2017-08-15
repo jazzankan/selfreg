@@ -2,8 +2,7 @@
  * Created by Anders on 2017-07-13.
  */
 $(document).ready(function(){
-$('#mainsubmit').click(function(){
-    $('#reginput').hide();
-   });
-
+if($('.errormsg p').text() != "" || $('#result p').text() != ""){
+$('#reginput').hide();
+  }
 });

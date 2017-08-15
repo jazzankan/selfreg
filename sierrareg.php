@@ -8,18 +8,18 @@ $street = (empty($_POST['street']) ? "" : $_POST['street']);
 $postalcode = (empty($_POST['postalcode']) ? "" : $_POST['postalcode']);
 $postaladdr = (empty($_POST['postaladdr']) ? "" : $_POST['postaladdr']);
 $email = (empty($_POST['email']) ? "" : $_POST['email']);
+$ptype = (empty($_POST['ptype']) ? 0 : $_POST['ptype']);
+$barcode = (empty($_POST['barcode']) ? "" : $_POST['barcode']);
+
 $searchresult = Array();
 $created = Array();
 $errormsg = "";
 $result = "";
 
-if($firstname == ""){
-    require_once 'form.php';
-}
+require_once 'form.php';
 
-
-if($firstname != "" && $familyname != "") {
-    $form = "";
+if($firstname != "" && $familyname != "" && $barcode == "") {
+    //$form = "";
     require 'jsonsearch.php';
     require 'jsondata.php';
     require_once 'patronapicall.php';
@@ -32,11 +32,37 @@ if($firstname != "" && $familyname != "") {
         $created = CreatePatron($jsondata);
         var_dump($created);
           if(isset($created['link'])){
-              $result = "Tack för din registrering!";
+              $result  = <<<EOD
+                <p>Tack för din registrering!</p>
+              <p id="complete">Om du befinner dig vid bibliotekets informationsdiskar kan du kan lämna över direkt till personalen för kontroll och komplettering!</p>
+EOD;
           }
           else{
              $errormsg = "Något gick fel. Kontakta biblioteket!";
           }
+    }
+}
+
+if($firstname != "" && $familyname != "" && $barcode != "") {
+    require 'jsonupdate.php';
+    //require_once 'patronapicall.php';
+    $updated = UpdatePatron($jsonupdate);
+    //Här nedanför måste det ändras 
+    if($searchresult['total'] != 0){
+        $errormsg = "Du verkar redan vara registrerad! Kontakta biblioteket!";
+    }
+    else{
+        $created = CreatePatron($jsondata);
+        var_dump($created);
+        if(isset($created['link'])){
+            $result  = <<<EOD
+                <p>Tack för din registrering!</p>
+              <p id="complete">Om du befinner dig vid bibliotekets informationsdiskar kan du kan lämna över direkt till personalen för kontroll och komplettering!</p>
+EOD;
+        }
+        else{
+            $errormsg = "Något gick fel. Kontakta biblioteket!";
+        }
     }
 }
 /*require_once 'patronapicall.php';
@@ -53,6 +79,7 @@ $html = <<<EOD
     <link href="css/selfreg.css" rel="stylesheet">
     <link rel="icon" type="image/gif" href="img/favicon.ico">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="script/selfreg.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
@@ -74,14 +101,14 @@ $html = <<<EOD
         <div class="col-sm-12">
                 <div id="reginput">
                 {$form}
+                </div>
                 <div class="errormsg">
                     <p>{$errormsg}</p>
                     </div>
                     <div id ="result">
-                    {$result}
+                    <p>{$result}</p>
                     </div>
-                    <p>&nbsp;</p>
-                 </div>
+                    <p>&nbsp;</p> 
         </div>
     </div>
     <div class="row">

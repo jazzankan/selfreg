@@ -111,6 +111,12 @@ body {
     font-size: 1.65rem;
 }
 
+#complete{
+    color: brown;
+    font-weight: 500;
+    font-size: 1.4rem;
+}
+
 .logo {
     float: right;
 }
