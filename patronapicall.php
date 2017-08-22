@@ -74,6 +74,32 @@ function CreatePatron($jsondata)
     return $pResponse;
     };
 
+function UpdatePatron($sessionId,$json)
+{
+    $token = GetToken();
+    $header = array(
+        "Authorization: Bearer " . $token,
+        'Content-Type: application/json',
+    );
+    $url = "https://soder.iii.com:443/iii/sierra-api/v4/patrons/$sessionId";
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+    curl_setopt($ch, CURLOPT_POST, false);
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $json);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $header);    $uResponse = curl_exec($ch);
+    //$curl_errno = curl_errno($ch);
+    //$curl_error = curl_error($ch);
+    curl_close($ch);
+    $uResponse = json_decode($uResponse, $assoc = true);
+    return $uResponse;
+};
+
+    //Not used
     function GetPatron($code){
 	$token = GetToken();
 	$header = array(

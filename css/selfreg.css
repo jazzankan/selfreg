@@ -94,8 +94,21 @@ body {
     margin-bottom: 20px;
 }
 
+.update{
+    display:none
+}
+
 #email{
     max-width: 300px;
+    margin-bottom: 20px;
+}
+#ptype {
+    max-width: 130px;
+    margin-bottom: 20px;
+}
+
+#barcode {
+    max-width: 130px;
     margin-bottom: 20px;
 }
 
@@ -112,7 +125,7 @@ body {
 }
 
 #complete{
-    color: brown;
+    color: #a52a2a;
     font-weight: 500;
     font-size: 1.4rem;
 }
@@ -123,6 +136,11 @@ body {
 
 img#card{
 
+}
+
+.mandatory{
+    font-weight:bold;
+    font-size: 1.2rem;
 }
 
 .obs{
@@ -142,6 +160,13 @@ a:link, a:visited {
     color: #004a70;
     font-weight: bold;
     text-decoration: none;
+}
+a#comp{
+    color: #a52a2a;
+}
+
+#updatepassw{
+    display: none;
 }
 
 .btn-success{

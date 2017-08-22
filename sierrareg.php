@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $firstname = (empty($_POST['firstname']) ? "" : $_POST['firstname']);
 $familyname = (empty($_POST['familyname']) ? "" : $_POST['familyname']);
 $uniqueid = (empty($_POST['uniqueid']) ? "" : $_POST['uniqueid']);
@@ -22,7 +22,7 @@ if($firstname != "" && $familyname != "" && $barcode == "") {
     //$form = "";
     require 'jsonsearch.php';
     require 'jsondata.php';
-    require_once 'patronapicall.php';
+    require 'patronapicall.php';
     $searchresult = SearchPatron($jsonsearch);
     var_dump($searchresult);
     if($searchresult['total'] != 0){
@@ -32,9 +32,16 @@ if($firstname != "" && $familyname != "" && $barcode == "") {
         $created = CreatePatron($jsondata);
         var_dump($created);
           if(isset($created['link'])){
+              $idlink = $created['link'];
+              $createdId = substr($idlink,-7);  //End of string returned, which is the recordid
+              $_SESSION['createdid'] = $createdId;
               $result  = <<<EOD
-                <p>Tack för din registrering!</p>
-              <p id="complete">Om du befinner dig vid bibliotekets informationsdiskar kan du kan lämna över direkt till personalen för kontroll och komplettering!</p>
+    <p>Tack för din registrering!</p>
+              <p id="complete">Om du befinner dig vid bibliotekets informationsdiskar kan du kan lämna över direkt till personalen för <a id="comp" href="#">komplettering!</a></p>
+              <div id="updatepassw" class="col-md-4"><p><form role="form" action="" method="post"><input class="form-control" name="passw" id="passw" value="" maxlength="16" type="text"></p>
+              <p><input class="btn btn-primary" id="updatesubmit" value="Skicka" type="submit"></p>
+              </form>
+              </div>
 EOD;
           }
           else{
@@ -45,30 +52,16 @@ EOD;
 
 if($firstname != "" && $familyname != "" && $barcode != "") {
     require 'jsonupdate.php';
-    //require_once 'patronapicall.php';
-    $updated = UpdatePatron($jsonupdate);
-    //Här nedanför måste det ändras 
-    if($searchresult['total'] != 0){
-        $errormsg = "Du verkar redan vara registrerad! Kontakta biblioteket!";
+    require 'patronapicall.php';
+    $sessionId = $_SESSION['createdid'];
+    $updated = UpdatePatron($sessionId,$jsonupdate);
+    if(($updated['code']!= 130 || $updated['code']!= 147)){
+        $result = "Posten är klar!";
     }
-    else{
-        $created = CreatePatron($jsondata);
-        var_dump($created);
-        if(isset($created['link'])){
-            $result  = <<<EOD
-                <p>Tack för din registrering!</p>
-              <p id="complete">Om du befinner dig vid bibliotekets informationsdiskar kan du kan lämna över direkt till personalen för kontroll och komplettering!</p>
-EOD;
-        }
         else{
             $errormsg = "Något gick fel. Kontakta biblioteket!";
         }
-    }
 }
-/*require_once 'patronapicall.php';
-$resp = GetPatron("1049873");
-//var_dump($pResponse);
-echo $resp['emails'][0];*/
 
 $html = <<<EOD
 <!DOCTYPE html>
@@ -87,10 +80,10 @@ $html = <<<EOD
     <div class="headwrap">
         <div class="row header">
             <div class="col-sm-7">
-                <h3 class="titlink"><a href="http://www.sh.se/bibliotek">Biblioteket</a> / <a href="https://pay.bibl.sh.se">Ansökan om lånekort</a></h3>
+                <h3 class="titlink"><a href="http://www.sh.se/bibliotek">Biblioteket</a> / <a href="https://shbiblioteket.se/selfreg/sierrareg.php">Ansökan om lånekort</a></h3>
             </div>
             <div class="col-sm-2">
-                <a href="https://pay.bibl.sh.se/eng">In English</a>
+                <a href="#">In English</a>
             </div>
             <div class="col-sm-3">
                 <a href="http://www.sh.se"><img src="img/logo.png" class="img-responsive col-sx-pull-9 col-sm-pull-right" alt="logotyp SH" width="165" height="85"></a>
@@ -101,6 +94,9 @@ $html = <<<EOD
         <div class="col-sm-12">
                 <div id="reginput">
                 {$form}
+                </div>
+                <div class="mandatory">
+                <p>Alla fält måste fyllas i!</p>
                 </div>
                 <div class="errormsg">
                     <p>{$errormsg}</p>
