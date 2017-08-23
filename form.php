@@ -19,9 +19,9 @@ $form = <<<EOD
                     <input class="form-control" name="phone" id="phone" value="$phone" required maxlength="16" type="text">
                     <div class="update">
                     <label for="ptype">PTYPE</label>
-                    <input class="form-control" name="ptype" id="ptype" value="" required maxlength="3" type="text">
+                    <input class="form-control" name="ptype" id="ptype" value="" maxlength="3" type="text">
                     <label for="barcode">Lånekortsnummer</label>
-                    <input class="form-control" name="barcode" id="barcode" value="" required maxlength="10" type="text">
+                    <input class="form-control" name="barcode" id="barcode" value="" maxlength="10" type="text">
                     </div>
                     </div>
                     <div class="col-md-6">

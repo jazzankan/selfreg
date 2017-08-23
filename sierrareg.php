@@ -24,13 +24,13 @@ if($firstname != "" && $familyname != "" && $barcode == "") {
     require 'jsondata.php';
     require 'patronapicall.php';
     $searchresult = SearchPatron($jsonsearch);
-    var_dump($searchresult);
+    //var_dump($searchresult);
     if($searchresult['total'] != 0){
        $errormsg = "Du verkar redan vara registrerad! Kontakta biblioteket!";
     }
     else{
         $created = CreatePatron($jsondata);
-        var_dump($created);
+        //var_dump($created);
           if(isset($created['link'])){
               $idlink = $created['link'];
               $createdId = substr($idlink,-7);  //End of string returned, which is the recordid
@@ -50,7 +50,7 @@ EOD;
     }
 }
 
-if($firstname != "" && $familyname != "" && $barcode != "") {
+if($firstname != "" && $familyname != "" && ($barcode != "" || $ptype != "")) {
     require 'jsonupdate.php';
     require 'patronapicall.php';
     $sessionId = $_SESSION['createdid'];
@@ -94,10 +94,10 @@ $html = <<<EOD
         <div class="col-sm-12">
                 <div id="reginput">
                 {$form}
-                </div>
-                <div class="mandatory">
+				<div class="mandatory">
                 <p>Alla fält måste fyllas i!</p>
                 </div>
+                </div>    
                 <div class="errormsg">
                     <p>{$errormsg}</p>
                     </div>
