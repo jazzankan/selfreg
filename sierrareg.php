@@ -18,7 +18,7 @@ $result = "";
 
 require_once 'form.php';
 
-if($firstname != "" && $familyname != "" && $barcode == "") {
+if($firstname != "" && $familyname != "" && $barcode == "" && $ptype == 0) {
     //$form = "";
     require 'jsonsearch.php';
     require 'jsondata.php';

@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="66537d84-b96d-4cad-85be-1be546245bf1" name="Default" comment="Just testing from PHP storm">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/form.php" afterPath="$PROJECT_DIR$/form.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sierrareg.php" afterPath="$PROJECT_DIR$/sierrareg.php" />
-    </list>
+    <list default="true" id="66537d84-b96d-4cad-85be-1be546245bf1" name="Default" comment="Just testing from PHP storm" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -86,8 +82,8 @@
       <file leaf-file-name="form.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/form.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="107" lean-forward="true" selection-start-line="21" selection-start-column="107" selection-end-line="21" selection-end-column="107" />
+            <state relative-caret-position="405">
+              <caret line="27" column="6" lean-forward="true" selection-start-line="27" selection-start-column="6" selection-end-line="27" selection-end-column="6" />
               <folding>
                 <marker date="1503516156509" expanded="true" signature="181:2490" ph="..." />
                 <marker date="1503516156509" expanded="true" signature="219:2369" ph="..." />
@@ -368,7 +364,7 @@
       <workItem from="1503338558831" duration="4789000" />
       <workItem from="1503415165578" duration="1432000" />
       <workItem from="1503422850639" duration="5118000" />
-      <workItem from="1503516243341" duration="247000" />
+      <workItem from="1503516243341" duration="452000" />
     </task>
     <task id="LOCAL-00001" summary="Just testing from PHP storm">
       <created>1499013952898</created>
@@ -381,7 +377,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="105520000" />
+    <option name="totallyTimeSpent" value="105725000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1054,8 +1050,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/form.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="107" lean-forward="true" selection-start-line="21" selection-start-column="107" selection-end-line="21" selection-end-column="107" />
+        <state relative-caret-position="405">
+          <caret line="27" column="6" lean-forward="true" selection-start-line="27" selection-start-column="6" selection-end-line="27" selection-end-column="6" />
           <folding>
             <marker date="1503516156509" expanded="true" signature="181:2490" ph="..." />
             <marker date="1503516156509" expanded="true" signature="219:2369" ph="..." />
