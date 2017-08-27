@@ -38,7 +38,7 @@ if($firstname != "" && $familyname != "" && $barcode == "" && $ptype == 0) {
               $result  = <<<EOD
     <p>Tack för din registrering!</p>
               <p id="complete">Om du befinner dig vid bibliotekets informationsdiskar kan du kan lämna över direkt till personalen för <a id="comp" href="#">komplettering!</a></p>
-              <div id="updatepassw" class="col-md-4"><p><form role="form" action="" method="post"><input class="form-control" name="passw" id="passw" value="" maxlength="16" type="text"></p>
+              <div id="updatepassw" class="col-md-4"><p><form role="form" action="" method="post"><input class="form-control" name="passw" id="passw" value="" maxlength="16" type="password"></p>
               <p><input class="btn btn-primary" id="updatesubmit" value="Skicka" type="submit"></p>
               </form>
               </div>
@@ -70,6 +70,7 @@ $html = <<<EOD
     <title>Registrera dig</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/selfreg.css" rel="stylesheet">
+    <link href="//cdn.rawgit.com/noelboss/featherlight/1.7.8/release/featherlight.min.css" type="text/css" rel="stylesheet" />
     <link rel="icon" type="image/gif" href="img/favicon.ico">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="script/selfreg.js"></script>
@@ -83,7 +84,7 @@ $html = <<<EOD
                 <h3 class="titlink"><a href="http://www.sh.se/bibliotek">Biblioteket</a> / <a href="https://shbiblioteket.se/selfreg/sierrareg.php">Ansökan om lånekort</a></h3>
             </div>
             <div class="col-sm-2">
-                <a href="#">In English</a>
+                <!--<a href="#">In English</a> -->
             </div>
             <div class="col-sm-3">
                 <a href="http://www.sh.se"><img src="img/logo.png" class="img-responsive col-sx-pull-9 col-sm-pull-right" alt="logotyp SH" width="165" height="85"></a>
@@ -114,7 +115,7 @@ $html = <<<EOD
                 <li>Fyll bara i om du <b>inte</b> har ett SH-kort.</li>
                 <li>Som registrerad kan du få ett lånekort vid bibliotekets informationsdisk.</li>
                 <li>Du måste visa legitimation vid uthämtande av lånekort.</li>
-                <li>Du måste acceptera bibliotekets låneregler.</li>
+                <li>Du måste acceptera <a href="http://www.sh.se/p3/ext/content.nsf/aget?openagent&key=laneregler_och_forseningsavgifter_1394537880114" target="_blank">bibliotekets låneregler</a>.</li>
                 <li>Vid problem, kontakta biblioteket.</li>
             </ul>
         </div>
@@ -127,7 +128,7 @@ $html = <<<EOD
     <div class="row footer" <p=""><a class="biblfoot" href="http://www.sh.se/bibliotek">Södertörns högskolebibliotek</a><a class="shfoot" href="http://www.sh.se">Södertörns högskola</a><p></p>
 </div>
 </div>
-
+<script src="//cdn.rawgit.com/noelboss/featherlight/1.7.8/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
 </body>
 </html>
 EOD;

@@ -208,5 +208,10 @@ ul.terms li {
     margin-left: 40px;
     font-size: 0.85em;
 }
+ul.clean{
+    list-style-type: none;
+    font-weight:bold;
+}
+
 
 
